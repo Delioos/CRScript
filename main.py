@@ -53,8 +53,14 @@ def playCard():
     x = random.randint(999,1361)
     y = random.randint(300, 700)
     pyautogui.click(x,y) 
-    
 
+def emot():
+    time.sleep(0.1)
+    pyautogui.click(989, 794)
+    time.sleep(0.1)
+    pyautogui.click(1233, 742)
+    
+    
 def endOfGame():
     pyautogui.click(1183, 842)
     
@@ -70,8 +76,9 @@ while(play):
     while(inGame):
         selectCard()
         playCard()
+        emot()
         time.sleep(2)
-        chrono += 4.2
+        chrono += 4.4
         if chrono >= 30:
             inGame = False
     endOfGame()       
