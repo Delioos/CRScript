@@ -34,7 +34,6 @@ def emot():
     pyautogui.click(1233, 642) # quit emot menu
 
 def chooseDeck(i):
-    print("deck :", i+1)
     time.sleep(4)
     # switch to the deck window
     pyautogui.click(1075, 890)
@@ -95,7 +94,7 @@ while(play):
     endOfGame()
     time.sleep(4)
     # switch deck every 8 min
-    if mainClock >= 2:
+    if mainClock >= 480:
         if deckIndex == 5:
             deckIndex = 0
         chooseDeck(deckIndex)

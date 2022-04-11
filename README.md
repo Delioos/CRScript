@@ -1,11 +1,26 @@
-# CRScript
-## purpose 
-The initial project is to create a simple script that can be used to grind the mastering card experience mechanic in clash royal to generate gold
+# Clash Royal farming script 
 
-## process 
-The main idea is to repeat a loop where the script play a card and launch a new game
+## General info 
+This is a short script that use the mouse and the keyboard to repeat a loop thats randomly use cards on the field (in a x3 elexir fiesta game). It also handle deck changing, so it can be used to farm 40 different cards.
+The goal of this script is to max out the card maxery in order to get gold and experience. 
 
-But, the final project would be to play a bunch of different deck and maxing out every card I have (5 decks would be ok)
+## Technology 
+Project is created with
 
-__autor__ : Delioos
+### Language 
+Python 3.9
 
+#### Libraries
+- time 
+- random 
+- pyautogui 
+  
+## Setup
+No setup tools develloped yet, so you can run the main in your terminal
+
+## Warning
+For the moment, the script is build to work with my personal screen. I don't know how to use general coordonates, I develloped around the emplacment of clash royal when it opens with bluestack on my main screen, so that may not fit with your system.
+
+## Features
+- emot spam when a card is put down 
+- deck switching every 8 min 
