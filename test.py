@@ -1,3 +1,6 @@
+# code to drop all the things I learned from this project 
+
+
 # click : pyautogui.click(x,y) at x,y coord or click() 
 # press a key : pyautogui.hotkey('key1','key2')
 # with pyautogui.hold('shift'):  # Press the Shift key down and hold it.
@@ -35,3 +38,5 @@ while True:
         else:
             print('Right Button Released')
     time.sleep(0.001)
+    
+

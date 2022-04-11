@@ -1,3 +1,5 @@
+# Code to find the coord of the mouse when a click is detected 
+# we used it here to find the coordinates of every button / dimension of the field etc  
 import pyautogui
 import time
 import win32api
