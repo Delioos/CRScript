@@ -26,12 +26,14 @@ def playCard():
     time.sleep(0.1)
     pyautogui.click(x,y) 
 
+
 def emot():
     time.sleep(0.1)
     pyautogui.click(989, 794) # emot menu
     time.sleep(0.1)
     pyautogui.click(1233, 742) # emot
     pyautogui.click(1233, 642) # quit emot menu
+
 
 def chooseDeck(i):
     time.sleep(4)
@@ -71,7 +73,6 @@ def endOfGame():
 play = True    
 
 # variable to handle deck switching
-mainClock = 0
 deckIndex = 0
 while(play):
     # search for a game 
@@ -87,16 +88,14 @@ while(play):
         emot()
         time.sleep(1)
         igClock += 2.4
-        mainClock += 2.4
         if igClock >= 42:
             inGame = False
     time.sleep(2) 
     endOfGame()
     time.sleep(4)
-    # switch deck every 8 min
-    if mainClock >= 480:
-        if deckIndex == 5:
-            deckIndex = 0
-        chooseDeck(deckIndex)
-        deckIndex += 1
-        mainClock = 0
+    # switch deck every game min
+    if deckIndex == 5:
+        deckIndex = 0
+    chooseDeck(deckIndex)
+    deckIndex += 1
+    

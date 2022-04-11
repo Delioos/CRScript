@@ -23,4 +23,4 @@ For the moment, the script is build to work with my personal screen. I don't kno
 
 ## Features
 - emot spam when a card is put down 
-- deck switching every 8 min 
+- deck switching every game 
