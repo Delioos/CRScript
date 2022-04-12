@@ -1,13 +1,28 @@
 import pyautogui
 import time
 import random
+import keyboard 
+
+
+# stateFlag = False
+def checkUserInput():
+    # global stateFlag
+    if keyboard.is_pressed("esc"):
+        print("esc pressed -> exit the script")
+        exit()
+    # if keyboard.is_pressed("space"):
+    #     stateFlag = not stateFlag
+    #     print("script state :", stateFlag)
+    #     time.sleep(0.5)
+    # if stateFlag:
+    #     checkUserInput()
 
 
 def findGame():
     time.sleep(2)
-    pyautogui.click(1247, 665)
+    pyautogui.click(1247, 665) # fiesta 
     time.sleep(3)    
-    pyautogui.click(1275, 493)
+    pyautogui.click(1284, 699) # normal game 
     time.sleep(2)
 
 
@@ -70,11 +85,13 @@ def endOfGame():
     time.sleep(1)
     pyautogui.click(1183, 842)
     
+    
 play = True    
 
 # variable to handle deck switching
 deckIndex = 0
 while(play):
+    checkUserInput()
     # search for a game 
     findGame()
     # variable to handle the end of the game     
@@ -82,20 +99,30 @@ while(play):
     igClock = 0
     # in game
     while(inGame):
+        checkUserInput()
         selectCard()
+        checkUserInput()
         playCard()
-        time.sleep(1)
+        checkUserInput()
+        time.sleep(2)
+        checkUserInput()
         emot()
-        time.sleep(1)
-        igClock += 2.4
+        time.sleep(2)
+        checkUserInput()
+        igClock += 4.4
         if igClock >= 42:
             inGame = False
     time.sleep(2) 
     endOfGame()
+    checkUserInput()
     time.sleep(4)
+    checkUserInput()
     # switch deck every game min
     if deckIndex == 5:
         deckIndex = 0
     chooseDeck(deckIndex)
     deckIndex += 1
     
+## TODO : 
+# gerer la sortie du script avec un event plutot qu'un appel degueu
+# ouvrir une fenetre graphique avec un bouton qui permet de mettre en pause le script en appuyant sur espace ou de quitter avec esc, ainsi qu'en appuyant à la main sur les boutons
