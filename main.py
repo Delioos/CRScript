@@ -29,9 +29,10 @@ def findGame():
 keys = ['&','fuck victor','"',"'"]
 def selectCard():
     index = random.randint(0,3)
-    pyautogui.hotkey(keys[index])
     if index == 1:
         pyautogui.click(1143, 888)
+    else:
+        pyautogui.hotkey(keys[index])
     time.sleep(0.2)
 
 
