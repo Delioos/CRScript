@@ -124,6 +124,3 @@ while(play):
     chooseDeck(deckIndex)
     deckIndex += 1
     
-## TODO : 
-# gerer la sortie du script avec un event plutot qu'un appel degueu
-# ouvrir une fenetre graphique avec un bouton qui permet de mettre en pause le script en appuyant sur espace ou de quitter avec esc, ainsi qu'en appuyant à la main sur les boutons
