@@ -19,6 +19,7 @@ def checkUserInput():
 
 
 def findGame():
+    checkUserInput()
     time.sleep(2)
     pyautogui.click(1247, 665) # fiesta 
     time.sleep(3)    
@@ -29,6 +30,7 @@ def findGame():
 
 keys = ['&','fuck victor','"',"'"]
 def selectCard():
+    checkUserInput()
     index = random.randint(0,3)
     if index == 1:
         pyautogui.click(1143, 888)
@@ -38,6 +40,7 @@ def selectCard():
 
 
 def playCard():
+    checkUserInput()
     x = random.randint(999,1341)
     y = random.randint(300, 700)
     time.sleep(0.1)
@@ -45,6 +48,7 @@ def playCard():
 
 
 def emot():
+    checkUserInput()
     time.sleep(0.1)
     pyautogui.click(989, 794) # emot menu
     time.sleep(0.1)
@@ -53,6 +57,7 @@ def emot():
 
 
 def chooseDeck(i):
+    checkUserInput()
     time.sleep(4)
     # switch to the deck window
     pyautogui.click(1075, 890)
@@ -73,6 +78,7 @@ def chooseDeck(i):
     
 
 def pick(i):
+    checkUserInput()
     switch={
         0:"1085|320",
         1:"1137|319",
@@ -84,6 +90,7 @@ def pick(i):
     
     
 def endOfGame():
+    checkUserInput()
     time.sleep(1)
     pyautogui.click(1183, 842)
     
@@ -93,7 +100,6 @@ play = True
 # variable to handle deck switching
 deckIndex = 0
 while(play):
-    checkUserInput()
     # search for a game 
     findGame()
     # variable to handle the end of the game     
@@ -101,21 +107,15 @@ while(play):
     igClock = 0
     # in game
     while(inGame):
-        checkUserInput()
         selectCard()
-        checkUserInput()
         playCard()
-        checkUserInput()
         time.sleep(2)
-        checkUserInput()
         emot()
         time.sleep(2)
-        checkUserInput()
         igClock += 4.4
         if igClock >= 42:
             inGame = False
     time.sleep(2) 
-    endOfGame()
     checkUserInput()
     time.sleep(4)
     checkUserInput()
@@ -125,7 +125,10 @@ while(play):
     chooseDeck(deckIndex)
     deckIndex += 1
     
+<<<<<<< HEAD:selfScriptFalsh.py
 ## TODO : 
 # gerer la sortie du script avec un event plutot qu'un appel degueu
 # ouvrir une fenetre graphique avec un bouton qui permet de mettre en pause le script en appuyant sur espace ou de quitter avec esc, ainsi qu'en appuyant à la main sur les boutons
 # fichier de config qui choisi dans quel mode lancer la game (special fiesta ou normal) avec 1 ou 0
+=======
+>>>>>>> f36c2362b8b52c30afebe2eb5d26b0c80e9a9453:main.py

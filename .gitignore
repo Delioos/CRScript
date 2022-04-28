@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 __pycache__/
 build/
 dist/
 .spec
 getUserInput.py
+=======
+.git
+build/
+dist/
+spec/
+.exe
+>>>>>>> f36c2362b8b52c30afebe2eb5d26b0c80e9a9453
