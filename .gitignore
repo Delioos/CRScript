@@ -3,3 +3,5 @@ build/
 dist/
 *.spec
 getUserInput.py
+test.py
+inputlist.txt

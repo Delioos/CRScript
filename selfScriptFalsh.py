@@ -1,29 +1,22 @@
+import sys
 import pyautogui
 import time
 import random
 import keyboard 
+import sys
 
 
-# stateFlag = False
 def checkUserInput():
-    # global stateFlag
     if keyboard.is_pressed("esc"):
-        print("esc pressed -> exit the script")
-        exit()
-    # if keyboard.is_pressed("space"):
-    #     stateFlag = not stateFlag
-    #     print("script state :", stateFlag)
-    #     time.sleep(0.5)
-    # if stateFlag:
-    #     checkUserInput()
-
-
+        sys.exit("esc pressed -> exit the script")
+  
+  
 def findGame():
     checkUserInput()
     time.sleep(2)
     pyautogui.click(1247, 665) # fiesta 
     time.sleep(3)    
-    #pyautogui.click(1284, 699) # normal game 
+    #pyautogui.click(1284, 699) # normal game genant le tirage un peu
     pyautogui.click(1284, 483) # special mode
     time.sleep(2)
 
@@ -115,20 +108,13 @@ while(play):
         igClock += 4.4
         if igClock >= 42:
             inGame = False
+    endOfGame() 
     time.sleep(2) 
     checkUserInput()
     time.sleep(4)
-    checkUserInput()
     # switch deck every game min
     if deckIndex == 5:
         deckIndex = 0
     chooseDeck(deckIndex)
     deckIndex += 1
     
-<<<<<<< HEAD:selfScriptFalsh.py
-## TODO : 
-# gerer la sortie du script avec un event plutot qu'un appel degueu
-# ouvrir une fenetre graphique avec un bouton qui permet de mettre en pause le script en appuyant sur espace ou de quitter avec esc, ainsi qu'en appuyant à la main sur les boutons
-# fichier de config qui choisi dans quel mode lancer la game (special fiesta ou normal) avec 1 ou 0
-=======
->>>>>>> f36c2362b8b52c30afebe2eb5d26b0c80e9a9453:main.py
