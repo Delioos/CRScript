@@ -5,6 +5,11 @@ import random
 import keyboard 
 import sys
 
+screen_width, screen_height = pyautogui.size()
+ratioX = screen_width / 1920
+ratioY = screen_height / 1080
+hardcoded_field_coords = [705,1211,100,700]
+hardcoded_deck_coords = []
 
 def checkUserInput():
     if keyboard.is_pressed("esc"):
@@ -14,10 +19,9 @@ def checkUserInput():
 def findGame():
     checkUserInput()
     time.sleep(2)
-    pyautogui.click(1247, 665) # fiesta 
+    pyautogui.click(1088*ratioX, 710*ratioY) # fiesta 
     time.sleep(3)    
-    #pyautogui.click(1284, 699) # normal game genant le tirage un peu
-    pyautogui.click(1284, 483) # special mode
+    pyautogui.click(1096*ratioX, 485*ratioY) # special mode
     time.sleep(2)
 
 
@@ -26,7 +30,7 @@ def selectCard():
     checkUserInput()
     index = random.randint(0,3)
     if index == 1:
-        pyautogui.click(1143, 888)
+        pyautogui.click(961*ratioX, 1000*ratioY) 
     else:
         pyautogui.hotkey(keys[index])
     time.sleep(0.2)
@@ -34,8 +38,8 @@ def selectCard():
 
 def playCard():
     checkUserInput()
-    x = random.randint(999,1341)
-    y = random.randint(300, 700)
+    x = random.randint(hardcoded_field_coords[0],hardcoded_field_coords[1])*ratioX
+    y = random.randint(hardcoded_field_coords[2],hardcoded_field_coords[3])*ratioY
     time.sleep(0.1)
     pyautogui.click(x,y) 
 
@@ -43,29 +47,30 @@ def playCard():
 def emot():
     checkUserInput()
     time.sleep(0.1)
-    pyautogui.click(989, 794) # emot menu
+    pyautogui.click(719*ratioX, 904*ratioY) # emot menu
     time.sleep(0.1)
-    pyautogui.click(1233, 742) # emot
-    pyautogui.click(1233, 642) # quit emot menu
+    pyautogui.click(833*ratioX, 732*ratioY)  # emot
+    pyautogui.click(833*ratioX, 642) # quit emot menu
 
 
 def chooseDeck(i):
     checkUserInput()
     time.sleep(4)
     # switch to the deck window
-    pyautogui.click(1075, 890)
+    pyautogui.click(804*ratioX, 1011*ratioY)
     time.sleep(0.5)
     # pick deck num i
+    ## lignes un peu useless mais c est technique et on aime bien les trucs technique et j ai la flemme de mettre a jour mon code meme si ce serai plus opti 
     rawStr = pick(i) #string in "x|y" format 
     sepStr = rawStr.split("|") #list : [x,y] /!\ type = string -> cast is necessary
-    x = int(sepStr[0])      
-    y = int(sepStr[1])
+    x = int(sepStr[0])*ratioX
+    y = int(sepStr[1])*ratioY
     # click on the deck
     pyautogui.click(x,y)
     time.sleep(0.5)
     
     # get back on main window
-    pyautogui.click(1199, 886)
+    pyautogui.click(1006*ratioX, 1018*ratioY)
     # sleep a sec to avoid bug
     time.sleep(1)
     
@@ -73,11 +78,11 @@ def chooseDeck(i):
 def pick(i):
     checkUserInput()
     switch={
-        0:"1085|320",
-        1:"1137|319",
-        2:"1169|319",
-        3:"1228|324",
-        4:"1277|323"
+        0:"830|255",
+        1:"899|255",
+        2:"962|255",
+        3:"1026|255",
+        4:"1086|255"
     }
     return switch.get(i, "a number between 0 and 4 is required")    
     
@@ -85,7 +90,7 @@ def pick(i):
 def endOfGame():
     checkUserInput()
     time.sleep(1)
-    pyautogui.click(1183, 842)
+    pyautogui.click(1011*ratioX,940*ratioY)
     
     
 play = True    
