@@ -15,8 +15,15 @@ Python 3.9
 - random 
 - pyautogui 
   
+### how to play Clash Royal on your pc 
+Personnaly I use bluestack five (an Android emulator you can get at [bluestack.com](https://www.bluestacks.com/)
 ## Setup
-No setup tools develloped yet, so you can run the main (selfScriptFalsh.py) in your terminal.
+### __for everyone__
+The script is  available in a .exe format, you just have to start the ```selfScriptFalsh.exe``` file in the "dist/" directory.
+
+__OR__ (if you got issue typically)
+
+You can also run the main (selfScriptFalsh.py) in your terminal.
 ### on windows
 you can open your terminal by pressing the windows key, then type "cmd" (the command prompt application) now you should have your terminal ready :
 ![terminal](https://www.onlyinfotech.com/wp-content/uploads/2020/03/1584388899_137_How-To-Find-Windows-10-Product-Key-Using-Command-Prompt.jpg)
