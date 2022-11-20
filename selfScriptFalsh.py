@@ -6,6 +6,8 @@ import keyboard
 import sys
 
 screen_width, screen_height = pyautogui.size()
+print("x : ",screen_width)
+print("y : ",screen_height)
 ratioX = screen_width / 1920
 ratioY = screen_height / 1080
 hardcoded_field_coords = [705,1211,100,700]
@@ -19,20 +21,14 @@ def checkUserInput():
 def findGame():
     checkUserInput()
     time.sleep(2)
-    pyautogui.click(1088*ratioX, 710*ratioY) # fiesta 
-    time.sleep(3)    
-    pyautogui.click(1096*ratioX, 485*ratioY) # special mode
+    pyautogui.click(878*ratioX, 681*ratioY) 
     time.sleep(2)
 
-
-keys = ['&','fuck victor','"',"'"]
+cards = [[835,918],]
 def selectCard():
     checkUserInput()
-    index = random.randint(0,3)
-    if index == 1:
-        pyautogui.click(961*ratioX, 1000*ratioY) 
-    else:
-        pyautogui.hotkey(keys[index])
+    car = random.randint(0, len(cards)-1)
+    pyautogui.click(cards[car][0]*ratioX, cards[car][1]*ratioY) 
     time.sleep(0.2)
 
 
@@ -90,8 +86,7 @@ def pick(i):
 def endOfGame():
     checkUserInput()
     time.sleep(1)
-    pyautogui.click(1011*ratioX,940*ratioY)
-    
+    pyautogui.click(968*ratioX, 922*ratioY)
     
 play = True    
 
@@ -122,4 +117,3 @@ while(play):
         deckIndex = 0
     chooseDeck(deckIndex)
     deckIndex += 1
-    
