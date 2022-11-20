@@ -124,7 +124,7 @@ def collectRewards():
         
 def main():         
     play = True    
-
+    chronoStart = time.time()
     # variable to handle deck switching
     deckIndex = 0
     while(play):
@@ -147,10 +147,15 @@ def main():
         time.sleep(2) 
         checkUserInput()
         time.sleep(4)
-        # switch deck every game min
+        # switch deck every game 
         if deckIndex == 5:
             deckIndex = 0
         chooseDeck(deckIndex)
         deckIndex += 1
-        # collect rewards
-        collectRewards()
+        # if the script has been running for more than 1h30
+        if time.time() - chronoStart > 5400:
+            # collect rewards
+            collectRewards()
+            # reset the chrono
+            chronoStart = time.time()
+        
