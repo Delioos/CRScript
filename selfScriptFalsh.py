@@ -21,6 +21,7 @@ def checkUserInput():
 def findGame():
     # click on the main page button
     pyautogui.click(995*ratioX, 1014*ratioY)
+    
     checkUserInput()
     time.sleep(2)
     pyautogui.click(878*ratioX, 681*ratioY) 
@@ -66,9 +67,7 @@ def chooseDeck(i):
     # click on the deck
     pyautogui.click(x,y)
     time.sleep(0.5)
-    
-    # get back on main window
-    pyautogui.click(1006*ratioX, 1018*ratioY)
+
     # sleep a sec to avoid bug
     time.sleep(1)
     
@@ -153,5 +152,5 @@ def main():
             deckIndex = 0
         chooseDeck(deckIndex)
         deckIndex += 1
-        
-collectRewards()
+        # collect rewards
+        collectRewards()
