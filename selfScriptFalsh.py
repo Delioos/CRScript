@@ -19,6 +19,8 @@ def checkUserInput():
   
   
 def findGame():
+    # click on the main page button
+    pyautogui.click(995*ratioX, 1014*ratioY)
     checkUserInput()
     time.sleep(2)
     pyautogui.click(878*ratioX, 681*ratioY) 
@@ -72,6 +74,7 @@ def chooseDeck(i):
     
 
 def pick(i):
+    # funny function to pick the right deck
     checkUserInput()
     switch={
         0:"830|255",
@@ -88,32 +91,67 @@ def endOfGame():
     time.sleep(1)
     pyautogui.click(968*ratioX, 922*ratioY)
     
-play = True    
+    
+def collectRewards():
+    # deck menu 
+    pyautogui.click(811*ratioX, 1011*ratioY)
+    time.sleep(0.5)
+    # card rewards menu 
+    pyautogui.click(1040*ratioX, 794*ratioY)
+    time.sleep(0.5)
+    # pour 10 cartes
+    for i in range(10):
+        # top left card
+        pyautogui.click(785*ratioX, 317*ratioY)
+        time.sleep(0.5)
+        # challenge 1
+        for j in range(10):
+            pyautogui.click(941*ratioX, 544*ratioY)
+            time.sleep(0.5)
+        # challenge 2
+        for j in range(10):
+            pyautogui.click(941*ratioX, 680*ratioY)
+            time.sleep(0.5)
+        # challenge 3
+        for j in range(10): 
+            pyautogui.click(941*ratioX, 827*ratioY)
+            time.sleep(0.5) 
+        # exit the card 
+        pyautogui.click(1200*ratioX, 151*ratioY)
+        time.sleep(1) 
+        # exit the challend reward menu
+        pyautogui.click(1195*ratioX, 180*ratioY)
+        time.sleep(1)
+        
+def main():         
+    play = True    
 
-# variable to handle deck switching
-deckIndex = 0
-while(play):
-    # search for a game 
-    findGame()
-    # variable to handle the end of the game     
-    inGame = True
-    igClock = 0
-    # in game
-    while(inGame):
-        selectCard()
-        playCard()
-        time.sleep(2)
-        emot()
-        time.sleep(2)
-        igClock += 4.4
-        if igClock >= 42:
-            inGame = False
-    endOfGame() 
-    time.sleep(2) 
-    checkUserInput()
-    time.sleep(4)
-    # switch deck every game min
-    if deckIndex == 5:
-        deckIndex = 0
-    chooseDeck(deckIndex)
-    deckIndex += 1
+    # variable to handle deck switching
+    deckIndex = 0
+    while(play):
+        # search for a game 
+        findGame()
+        # variable to handle the end of the game     
+        inGame = True
+        igClock = 0
+        # in game
+        while(inGame):
+            selectCard()
+            playCard()
+            time.sleep(2)
+            emot()
+            time.sleep(2)
+            igClock += 4.4
+            if igClock >= 42:
+                inGame = False
+        endOfGame() 
+        time.sleep(2) 
+        checkUserInput()
+        time.sleep(4)
+        # switch deck every game min
+        if deckIndex == 5:
+            deckIndex = 0
+        chooseDeck(deckIndex)
+        deckIndex += 1
+        
+collectRewards()
