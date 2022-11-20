@@ -140,6 +140,12 @@ def main():
             time.sleep(2)
             emot()
             time.sleep(2)
+            ######################################################################################
+            ## modify this part to make the game last longer
+            ### we can check the color of the "end of game" button to know if the game is over
+            # halo remi c est par la que ca se passe t entends 
+            ######################################################################################
+            
             igClock += 4.4
             if igClock >= 42:
                 inGame = False
