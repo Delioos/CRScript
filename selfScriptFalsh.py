@@ -102,7 +102,7 @@ def collectRewards():
     for i in range(10):
         # top left card
         pyautogui.click(785*ratioX, 317*ratioY)
-        time.sleep(0.5)
+        time.sleep(2)
         # challenge 1
         for j in range(10):
             pyautogui.click(941*ratioX, 544*ratioY)
@@ -122,6 +122,24 @@ def collectRewards():
         pyautogui.click(1195*ratioX, 180*ratioY)
         time.sleep(1)
         
+def checkGameOver():
+    # return true if the game is over
+    # this function look at 8 pixels with precise coordonates and if they match with those from the "ok" button of the end of the game then the function returns true
+    color = []
+    image = ImageGrab.grab()
+    #pixels correspondants aux bouton ok de fin de partie
+    color.append(image.getpixel((945*ratioX, 945*ratioY))) #blanc
+    color.append(image.getpixel((913*ratioX, 935*ratioY))) #bleu clair
+    color.append(image.getpixel((1000*ratioX, 940*ratioY))) #bleu clair
+    color.append(image.getpixel((953*ratioX, 955*ratioY))) #blanc
+    color.append(image.getpixel((968*ratioX, 959*ratioY))) #noir
+    color.append(image.getpixel((965*ratioX, 981*ratioY))) #bleu foncé
+    color.append(image.getpixel((1023*ratioX, 981*ratioY))) #bleu foncé
+    color.append(image.getpixel((965*ratioX, 947*ratioY))) #blanc
+    #print(color) # print an array of the observated pixels
+    return (color == [(255, 255, 255), (103, 186, 255), (104, 187, 255), (255, 255, 255), (19, 44, 64), (0, 85, 168), (0, 79, 165), (255, 255, 255)])
+
+
 def main():         
     play = True    
     chronoStart = time.time()
@@ -145,10 +163,8 @@ def main():
             ### we can check the color of the "end of game" button to know if the game is over
             # halo remi c est par la que ca se passe t entends 
             ######################################################################################
-            
-            igClock += 4.4
-            if igClock >= 42:
-                inGame = False
+            inGame = checkGameOver()
+
         endOfGame() 
         time.sleep(2) 
         checkUserInput()
